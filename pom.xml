@@ -3,12 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>commons-api</artifactId>
+    <artifactId>example-commons-api</artifactId>
     <version>1.0.0</version>
 
     <packaging>jar</packaging>
 
-    <description>Commons API project</description>
+    <description>Example Commons API project</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>

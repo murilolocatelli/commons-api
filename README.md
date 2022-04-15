@@ -1,6 +1,6 @@
-# commons-api
+# example-commons-api
 
-> Commons API is a lib for general common configurations
+> Example Commons API is a lib for general API configurations
 
 ## Config lombok for Eclipse
 
