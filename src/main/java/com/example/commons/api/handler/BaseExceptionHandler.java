@@ -165,7 +165,7 @@ public class BaseExceptionHandler {
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public List<ResponseError> exception(Exception ex) {
-        String developerMessage = "Internal server error {0}";
+        String developerMessage = "Internal server error: {0}";
         String userMessage = "Was encountered an error when processing your request. We apologize for the inconvenience";
 
         return this.createResponseErrors(
