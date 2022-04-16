@@ -2,7 +2,7 @@ package com.example.commons.api.util;
 
 import java.text.MessageFormat;
 
-public abstract class StringUtils {
+public interface StringUtils {
 
     public static boolean isEmptyTrim(String value) {
         return (value == null || "".equals(value.trim()));

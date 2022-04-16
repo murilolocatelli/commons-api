@@ -8,28 +8,26 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
-public class BaseControllerTest {
+class BaseControllerTest {
 
     @Test
-    public void buildResponseHttpStatusNull() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            ConcreteController concreteController = new ConcreteController();
+    void buildResponseHttpStatusNull() {
+        ConcreteController concreteController = new ConcreteController();
 
-            concreteController.buildResponseHttpStatusNull();
-        });
+        Assertions.assertThrows(
+            IllegalArgumentException.class, () -> concreteController.buildResponseHttpStatusNull());
     }
 
     @Test
-    public void buildResponseResultNull() {
-        Assertions.assertThrows(EntityNotFoundException.class, () -> {
-            ConcreteController concreteController = new ConcreteController();
+    void buildResponseResultNull() {
+        ConcreteController concreteController = new ConcreteController();
 
-            concreteController.buildResponseResultNull();
-        });
+        Assertions.assertThrows(
+            EntityNotFoundException.class, () -> concreteController.buildResponseResultNull());
     }
 
     @Test
-    public void buildResponseResultObject() {
+    void buildResponseResultObject() {
         ConcreteController concreteController = new ConcreteController();
 
         concreteController.buildResponseResultObject();

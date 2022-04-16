@@ -31,12 +31,12 @@ public class LocalDateRange {
             return;
         }
 
-        if (start != null && end == null) {
-            throw new MissingParameterException("end");
+        if (start == null) {
+            throw new MissingParameterException("start");
         }
 
-        if (end != null && start == null) {
-            throw new MissingParameterException("start");
+        if (end == null) {
+            throw new MissingParameterException("end");
         }
 
         if (start.isAfter(end)) {

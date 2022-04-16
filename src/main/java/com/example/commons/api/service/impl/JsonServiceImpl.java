@@ -49,7 +49,7 @@ public class JsonServiceImpl implements JsonService {
     public String removeNewlineAndTabFromString(String jsonString) {
         return Optional.ofNullable(jsonString)
             .filter(t -> !StringUtils.isEmptyTrim(t))
-            .map(t -> jsonString.replaceAll("\"", "").replaceAll("\n", ""))
+            .map(t -> jsonString.replace("\"", "").replace("\n", ""))
             .orElse(null);
     }
 

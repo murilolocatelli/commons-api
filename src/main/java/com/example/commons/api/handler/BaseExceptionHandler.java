@@ -35,6 +35,8 @@ public class BaseExceptionHandler {
     private static final String ZONED_DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSSZ";
     private static final String LOCAL_DATE_TIME_PATTERN = "yyyy-MM-dd'T'HH:mm:ss.SSS";
     private static final String LOCAL_DATE_PATTERN = "yyyy-MM-dd";
+    private static final String INVALID_FIELD = "Invalid field {0} - it must be filled with a valid date in pattern {1}";
+    private static final String INVALID_PARAMETER = "Invalid parameter {0} - it must be filled with a valid date in pattern {1}";
 
     //TODO: Review ExceptionHandler
 
@@ -58,8 +60,7 @@ public class BaseExceptionHandler {
         List<ResponseError> errorMessages = new ArrayList<>();
         Throwable cause = ex.getCause();
 
-        if (cause instanceof JsonMappingException) {
-            JsonMappingException jsonMappingException = (JsonMappingException) cause;
+        if (cause instanceof JsonMappingException jsonMappingException) {
             String field = this.getField(jsonMappingException);
             String message = ex.getMessage();
 
@@ -224,11 +225,11 @@ public class BaseExceptionHandler {
 
         } else if (message.contains("java.time.ZonedDateTime")) {
             String developerMessage =
-                format("Invalid parameter {0} - it must be filled with a valid date in pattern {1}",
+                format(INVALID_PARAMETER,
                     fieldName, ZONED_DATE_TIME_PATTERN);
 
             String userMessage =
-                format("Invalid field {0} - it must be filled with a valid date in pattern {1}",
+                format(INVALID_FIELD,
                     fieldName, ZONED_DATE_TIME_PATTERN);
 
             return ResponseError.builder()
@@ -238,11 +239,11 @@ public class BaseExceptionHandler {
 
         } else if (message.contains("java.time.LocalDateTime")) {
             String developerMessage =
-                format("Invalid parameter {0} - it must be filled with a valid date in pattern {1}",
+                format(INVALID_PARAMETER,
                     fieldName, LOCAL_DATE_TIME_PATTERN);
 
             String userMessage =
-                format("Invalid field {0} - it must be filled with a valid date in pattern {1}",
+                format(INVALID_FIELD,
                     fieldName, LOCAL_DATE_TIME_PATTERN);
 
             return ResponseError.builder()
@@ -252,11 +253,11 @@ public class BaseExceptionHandler {
 
         } else if (message.contains("java.time.LocalDate")) {
             String developerMessage =
-                format("Invalid parameter {0} - it must be filled with a valid date in pattern {1}",
+                format(INVALID_PARAMETER,
                     fieldName, LOCAL_DATE_PATTERN);
 
             String userMessage =
-                format("Invalid field {0} - it must be filled with a valid date in pattern {1}",
+                format(INVALID_FIELD,
                     fieldName, LOCAL_DATE_PATTERN);
 
             return ResponseError.builder()

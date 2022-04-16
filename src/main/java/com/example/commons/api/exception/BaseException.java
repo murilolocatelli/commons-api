@@ -2,7 +2,7 @@ package com.example.commons.api.exception;
 
 public class BaseException extends RuntimeException {
 
-    private String[] parameters;
+    private final String[] parameters;
 
     public BaseException(String... parameters) {
         this.parameters = parameters;
